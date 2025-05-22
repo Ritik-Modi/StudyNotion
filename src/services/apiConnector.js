@@ -1,12 +1,10 @@
 import axios from "axios";
 
-// Create Axios instance with base URL and cookie credentials
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:4000", // Update to production URL when needed
-  withCredentials: true, // ✅ Ensures cookies (like JWT token) are sent
+  baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:4000",
+  withCredentials: true, // send cookies in cross-origin requests
 });
 
-// API connector function
 export const apiConnector = async (
   method,
   url,
@@ -15,7 +13,6 @@ export const apiConnector = async (
   params = null
 ) => {
   try {
-    // Automatically set correct Content-Type
     const headers = {
       "Content-Type":
         bodyData instanceof FormData
@@ -24,7 +21,6 @@ export const apiConnector = async (
       ...customHeaders,
     };
 
-    // Make API call
     const response = await axiosInstance({
       method,
       url,
