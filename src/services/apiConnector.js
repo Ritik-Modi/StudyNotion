@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:4000",
+  baseURL: import.meta.env.REACT_APP_API_BASE_URL || "http://localhost:4000",
   withCredentials: true, // send cookies in cross-origin requests
 });
 
