@@ -1,6 +1,6 @@
 import React from 'react'
 import Template from '../components/core/Auth/Template'
-import signupImg from '../assets/images/signup.webp'
+import signupImg from '../assets/Images/signup.webp'
 
 function Signup() {
     return (
