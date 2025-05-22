@@ -4,9 +4,15 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  server: {
-    proxy: {
-      "/api": "https://studynotion-2uiu.onrender.com",
+  // vite.config.js
+server: {
+  proxy: {
+    '/api': {
+      target: 'https://studynotion-2uiu.onrender.com',
+      changeOrigin: true,
+      secure: false,
     },
   },
+}
+
 });
